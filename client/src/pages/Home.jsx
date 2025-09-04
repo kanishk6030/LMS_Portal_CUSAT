@@ -10,9 +10,11 @@ function Home() {
         </Parallax>
       </section>
 
-      <section className="h-screen flex items-center justify-center bg-green-200">
+      <section className="h-screen bg-[#0a0a0a]">
         <Parallax>
-          <p className="text-xl">Scroll down to see the magic ✨</p>
+          <div className="">
+            
+          </div>
         </Parallax>
       </section>
     </>
