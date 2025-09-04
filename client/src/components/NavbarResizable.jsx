@@ -17,7 +17,7 @@ function NavbarResizable() {
   const navItems = [
     {
       name: "Home",
-      link: "/home",
+      link: "/",
     },
     {
       name: "Students",
@@ -40,7 +40,7 @@ function NavbarResizable() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <Link to="/register">
+            <Link to="/signup">
               <NavbarButton variant="primary">Register</NavbarButton>
             </Link>
           </div>

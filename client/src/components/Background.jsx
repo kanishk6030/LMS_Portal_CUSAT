@@ -5,6 +5,7 @@ import { FlipWordsDemo } from "./FlipWordsDemo";
 
 export function Background() {
   return (
+    <>
     <div
       className="h-screen w-full bg-neutral-950 flex flex-col items-center justify-center antialiased">
       <div className="max-w-full mx-auto ">
@@ -23,6 +24,7 @@ export function Background() {
         </p>
       </div>
       <BackgroundBeams />
-    </div>
+      </div>
+    </>
   );
 }
