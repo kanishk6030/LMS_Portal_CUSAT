@@ -12,7 +12,7 @@ function Home() {
 
       <section className="h-screen flex items-center justify-center bg-green-200">
         <Parallax>
-          <p className="text-xl">Scroll down to see the magic ✨</p>
+          <p className="text-xl">Scroll down to see the magic ✨ </p>
         </Parallax>
       </section>
     </>
