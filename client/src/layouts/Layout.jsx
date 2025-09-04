@@ -11,6 +11,7 @@ function Layout() {
             backgroundColor:'white'
         }}>
         <NavbarResizable />
+        <div className="nav-wrapper w-full h-[8vh] bg-[#0a0a0a]"></div>
         <Outlet />
         <Footer />
       </div>

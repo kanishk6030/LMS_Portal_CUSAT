@@ -1,14 +1,16 @@
 import React from 'react'
+import { SignupFormDemo } from '../components/SignupFormDemo'
 import { LoginForm } from '../components/LoginForm'
 
-function Login() {
+function Signup() {
   return (
     <>
       <div className='relative w-full h-screen bg-background flex items-center justify-center'>
-        <LoginForm />
+        <SignupFormDemo />
+        {/* <LoginForm /> */}
       </div>
     </>
   )
 }
 
-export default Login
+export default Signup
