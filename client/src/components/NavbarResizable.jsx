@@ -20,12 +20,16 @@ function NavbarResizable() {
       link: "/",
     },
     {
-      name: "Students",
-      link: "/students",
-    },
-    {
       name: "Faculty",
       link: "/faculty",
+    },
+    {
+      name: "About Us",
+      link: "/About",
+    },
+     {
+      name: "Campus Life",
+      link: "/campus",
     },
   ];
  
@@ -41,10 +45,14 @@ function NavbarResizable() {
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
             <Link to="/signup">
-              <NavbarButton variant="primary">Register</NavbarButton>
+              <NavbarButton variant="primary">Sign-up</NavbarButton>
+              </Link>
+            <Link to="/login">
+              <NavbarButton variant="primary">Login</NavbarButton>
             </Link>
           </div>
         </NavBody>
+        
  
         {/* Mobile Navigation */}
         <MobileNav>

@@ -26,6 +26,23 @@ function Footer() {
           <Link to='/courses' className='text-white/50 text-base text-[18px]'>Courses</Link >
         </div>
       </div>
+
+      <div className=' w-[33%] h-full'>
+        <div className='flex flex-col justify-start items-center h-full pt-11 gap-2'>
+          <h1 className='text-lg font-semibold text-white'>Other</h1>
+          <Link to='/' className='text-white/50 text-base text-[18px]'>Anti-Ragging Cell</Link >
+          <Link to='/' className='text-white/50 text-base text-[18px]' >GRC</Link >
+        </div>
+      </div>
+
+<div className=' w-[33%] h-full'>
+        <div className='flex flex-col justify-start items-center h-full pt-11 gap-2'>
+          <h1 className='text-lg font-semibold text-white'>Programs</h1>
+          <Link to='/' className='text-white/50 text-base text-[18px]'>B-Tech</Link >
+          <Link to='/' className='text-white/50 text-base text-[18px]' >Research</Link >
+          <Link to='/' className='text-white/50 text-base text-[18px]' >MCA</Link >
+        </div>
+      </div>
       <div className=' w-[33%] h-full'>
         <div className='flex flex-col justify-start items-center h-full pt-11 gap-2'>
           <h1 className='text-lg font-semibold text-white'>Contact Us</h1>
@@ -34,8 +51,8 @@ function Footer() {
         </div>
       </div>
       </div>
-      <div className='boundary-line bg-amber-50 opacity-15 w-full h-[1px]'></div>
-      <div className='max-w-full min-w-full text-end'>
+      <div className='boundary-line bg-amber-50 opacity-15 w-full h-[1px] '></div>
+      <div className='max-w-full min-w-full text-end center pt-2 text-white/50 text-sm '>
         @ 2024 CUSAT LMS Portal. All rights reserved.
       </div>
     </div>
