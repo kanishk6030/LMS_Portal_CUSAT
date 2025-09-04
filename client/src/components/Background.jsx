@@ -2,6 +2,8 @@
 import React from "react";
 import { BackgroundBeams } from "./ui/background-beams";
 import { FlipWordsDemo } from "./FlipWordsDemo";
+import { twMerge } from "tailwind-merge";
+ 
 
 export function Background() {
   return (
