@@ -53,8 +53,9 @@ exports.login =  async (req, res) => {
 
 // Google Login
 exports.google = async (req, res) => {
+
   try {
-    const { tokenId } = req.body;
+    const tokenId  = req.body.tokenId;
 
     const ticket = await client.verifyIdToken({
       idToken: tokenId,
@@ -77,3 +78,12 @@ exports.google = async (req, res) => {
   }
 };
 
+exports.getMe = async(req,res)=>{
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    if(!user) return res.status(400).json({error:"User not found"});
+    res.json({user});
+  } catch (error) {
+    res.status(400).json({error:"User not found"});
+  }
+};
