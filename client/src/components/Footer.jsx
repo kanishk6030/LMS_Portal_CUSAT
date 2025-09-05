@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className='w-full h-[40vh] bg-[#0a0a0a]'> 
     <div className='boundary-line bg-amber-50 opacity-15 w-full h-[1px]'></div>
-    <div className='w-full h-full flex flex-col justify-center items-center text-neutral-500 text-sm p-2 '>
+    <div className='w-full h-full flex flex-col justify-center items-center text-neutral-500 text-sm '>
       <div className='w-full h-full flex flex-row justify-center items-start '>
         <div className='w-[33%] h-full flex flex-col justify-center items-start px-8'>
         <h1 className='text-lg font-semibold text-white'>Cochin University of Science and Technology</h1>
