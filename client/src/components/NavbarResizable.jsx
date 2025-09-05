@@ -12,6 +12,7 @@ import {
   MobileNavMenu,
 } from "../components/ui/resizable-navbar";
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
  
 function NavbarResizable() {
   const navItems = [
@@ -34,6 +35,8 @@ function NavbarResizable() {
   ];
  
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const {user,logout} = useAuth();
  
   return (
     <div className="fixed w-full z-50 h-[10vh]">
@@ -44,12 +47,26 @@ function NavbarResizable() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <Link to="/signup">
+            {user ? (
+              <>
+              <Link to="/">
+              <NavbarButton variant="primary" 
+              onClick={logout}
+              >Logout</NavbarButton>
+              </Link>
+              </>
+            ):(
+              <>
+              <Link to="/signup">
               <NavbarButton variant="primary">Sign-up</NavbarButton>
               </Link>
             <Link to="/login">
               <NavbarButton variant="primary">Login</NavbarButton>
             </Link>
+              </>
+            )
+            }
+            
           </div>
         </NavBody>
         

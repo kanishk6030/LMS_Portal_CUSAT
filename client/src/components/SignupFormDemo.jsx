@@ -8,13 +8,51 @@ import {
   IconBrandGoogle,
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
+import { useAuth } from "../context/AuthContext";
+import { GoogleLogin } from "@react-oauth/google";
 
 export function SignupFormDemo() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    //Submit logic here
+  const { user,register, googleLogin ,authLoading} = useAuth();
+  const [form, setForm] = React.useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({...form,[e.target.name]: e.target.value})
     console.log("Form submitted");
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await register({
+        name:form.name,
+        email:form.email,
+        password:form.password,
+      });
+      console.log("Registered successfully" , user);
+    } catch (error) {
+      console.error("Registration failed:", error);
+    }
+  };
+
+  //Google Login
+//   const loginWithGoogle = useGoogleLogin({
+//   onSuccess: async (credentialResponse) => {
+//     console.log(credentialResponse.credential)
+//     try {
+//       await googleLogin(credentialResponse.credential);
+//       console.log("Google login successful");
+//     } catch (err) {
+//       console.error("Google login failed", err);
+//     }
+//   },
+//   onError: () => console.error("❌ Google login failed"),
+// });
+
+
+
   return (
     <div
       className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
@@ -25,23 +63,44 @@ export function SignupFormDemo() {
         <div
           className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
           <LabelInputContainer>
-            <Label htmlFor="firstname">Name</Label>
-            <Input id="firstname" placeholder="Kanishk" type="text" />
+            <Label htmlFor="name">Name</Label>
+            <Input 
+            id="name"
+            placeholder="Kanishk" 
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="infocusatm@fc.com" type="email" />
+          <Input
+            id="email"
+            placeholder="infocusatm@fc.com"
+            type="email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
+          <Input
+            id="password"
+            placeholder="••••••••"
+            type="password"
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+          />
         </LabelInputContainer>
 
         <button
           className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
           type="submit">
-          Sign up &rarr;
+          {authLoading ? "Loading..." : "Sign up"} &rarr;
           <BottomGradient />
         </button>
 
@@ -58,15 +117,33 @@ export function SignupFormDemo() {
             </span>
             <BottomGradient />
           </button> */}
-          <button
+          {/* <button
             className="group/btn shadow-input relative flex h-10 w-full items-center justify-start space-x-2 rounded-md bg-gray-50 px-4 font-medium text-black dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_#262626]"
             type="submit">
             <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            <span className="text-sm text-neutral-700 dark:text-neutral-300">
-              Sign in with Google
-            </span>
+            <span className="text-sm text-neutral-700 dark:text-neutral-300"
+            > */}
+            <GoogleLogin
+      onSuccess={async (credentialResponse) => {
+        console.log("Google Response:", credentialResponse);
+
+        // ✅ credentialResponse.credential should now be a valid JWT (id_token)
+        const tokenId = credentialResponse.credential;
+
+        try {
+          await googleLogin(tokenId); // send tokenId to backend
+          console.log("Google login successful");
+        } catch (err) {
+          console.error("Google login failed", err);
+        }
+      }}
+      onError={() => {
+        console.log("❌ Login Failed");
+      }}
+    />
+            {/* </span>
             <BottomGradient />
-          </button>
+          </button> */}
           {/* <button
             className="group/btn shadow-input relative flex h-10 w-full items-center justify-start space-x-2 rounded-md bg-gray-50 px-4 font-medium text-black dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_#262626]"
             type="submit">

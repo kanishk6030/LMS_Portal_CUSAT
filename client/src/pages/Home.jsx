@@ -4,6 +4,7 @@ import { Background } from "../components/Background"; // Corrected Path
 
 import Announcements from "../components/Announcements"; // Corrected Path
 import QuoteWidget from "../components/QuoteWidget";
+import { useAuth } from "../context/AuthContext";
 
 
 // Mock data - later this will come from your API
@@ -33,6 +34,9 @@ const recentAnnouncements = [
 ];
 
 function Home() {
+
+  const { user } = useAuth();
+
   return (
     <>
       <section className="relative h-screen z-40">
