@@ -53,12 +53,12 @@ exports.login =  async (req, res) => {
 
 // Google Login
 exports.google = async (req, res) => {
-
+// console.log(req.body)
   try {
-    const tokenId  = req.body.tokenId;
+    const { credential }  = req.body;
 
     const ticket = await client.verifyIdToken({
-      idToken: tokenId,
+      idToken: credential,
       audience: process.env.GOOGLE_CLIENT_ID
     });
 
@@ -66,8 +66,20 @@ exports.google = async (req, res) => {
 
     let user = await User.findOne({ email });
 
+    // console.log(user);
+
+    // Created a random password  for the Google Auth user
+    const randomPassword = crypto.randomBytes(16).toString("hex");
+      // Hash it before saving
+      const hashedPassword = await bcrypt.hash(randomPassword, 12);
+
     if (!user) {
-      user = new User({ name, email, authProvider: "google" });
+      user = new User({ 
+        name, 
+        email,
+        password: hashedPassword,
+        authProvider: "google",
+       });
       await user.save();
     }
 
