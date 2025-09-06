@@ -13,6 +13,7 @@ import {
 } from "../components/ui/resizable-navbar";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import DropdownProfile from "./DropdownProfile";
  
 function NavbarResizable() {
   const navItems = [
@@ -26,7 +27,7 @@ function NavbarResizable() {
     },
     {
       name: "About Us",
-      link: "/About",
+      link: "/about",
     },
      {
       name: "Campus Life",
@@ -49,11 +50,12 @@ function NavbarResizable() {
           <div className="flex items-center gap-4">
             {user ? (
               <>
-              <Link to="/">
+              <DropdownProfile />
+              {/* <Link to="/">
               <NavbarButton variant="primary" 
               onClick={logout}
               >Logout</NavbarButton>
-              </Link>
+              </Link> */}
               </>
             ):(
               <>

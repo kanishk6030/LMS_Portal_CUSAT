@@ -243,7 +243,7 @@ export const NavbarLogo = () => {
         width={30}
         height={30}
       />
-      <span className="font-medium text-black dark:text-white">Startup</span>
+      {/* <span className="font-medium text-white dark:text-white bg-gradient-to-b from-white to-background bg-clip-text">LMS</span> */}
     </a>
   );
 };

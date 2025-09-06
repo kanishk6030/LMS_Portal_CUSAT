@@ -72,10 +72,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Google Login
-  const googleLogin = async (tokenId) => {
+  const googleLogin = async (credential) => {
     setAuthLoading(false);
     try{
-        const res = await authApi.google( {tokenId} );
+        const res = await authApi.google( {credential} );
         saveAuth(res.data.token, res.data.user);
         console.log(res.data);
         return res.data.user;

@@ -4,6 +4,7 @@ import { Background } from "../components/Background"; // Corrected Path
 
 import Announcements from "../components/Announcements"; // Corrected Path
 import QuoteWidget from "../components/QuoteWidget";
+import About from "./About";
 import { useAuth } from "../context/AuthContext";
 
 
@@ -48,7 +49,7 @@ function Home() {
       {/* <div className="bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto"> */}
       {/* Recent Announcements Section */}
-      <section className="border  w-full h-screen bg-[#0a0a0a]">
+      <section className="w-full h-screen bg-[#0a0a0a]">
         <div className="relative z-10 w-full h-full flex">
           <div className="wrapper1 w-[50%] h-full flex items-center justify-center ">
             <div className="max-w-md px-2 sm:px-6 lg:px-8 py-8  rounded-3xl bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] shadow-lg">
@@ -72,6 +73,7 @@ function Home() {
       <section>
         <Parallax>
           <div className="w-full h-screen bg-background">
+            <About/>
           </div>
         </Parallax>
       </section>
