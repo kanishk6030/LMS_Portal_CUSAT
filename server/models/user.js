@@ -23,22 +23,8 @@ const userSchema = new Schema({
     },
     role: {
         type: String,
-        enum: ['user', 'faculty', 'admin'], // only three roles
+        enum: ['student', 'faculty', 'admin'], // only three roles
         default: 'user'
-    },
-    department:{
-        default: "General",
-        type:String,
-    },
-    semester:{
-        default: 1,
-        type:Number,
-        min:1,
-        max:8,
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
     },
 })
 

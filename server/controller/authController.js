@@ -2,7 +2,9 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require("../models/user.js");
+const Student = require("../models/students.js");
 const { OAuth2Client } = require("google-auth-library");
+const Faculty = require('../models/faculty.js');
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
@@ -20,11 +22,27 @@ const generateToken = (user) => {
 // Register with email/password
 exports.register =  async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password,role='student' } = req.body;
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    const user = new User({ name, email, password: hashedPassword, authProvider: "local" });
-    await user.save();
+    const user = User.create({
+      name, 
+      email, 
+      password: hashedPassword, 
+      role,
+      authProvider: "local" 
+    });
+
+    //If the user.role == Student
+    if(role == "student"){
+      await Student.create({
+        userId:user._id,
+      })
+    }else if(role == "faculty"){
+      await Faculty.create({
+        userId:user._id,
+      })
+    }
 
     const token = generateToken(user);
     res.json({ token, user });
