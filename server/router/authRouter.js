@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const{ register , login ,google,getMe } = require('../controller/authController');
-const jwtAuth = require("../middlewares/jwtAuth");
+const requireAuth = require("../middlewares/requireAuth");
 
 // @route   POST /api/auth/register
 // @desc    Register a new user (Student or Faculty)
@@ -21,7 +21,7 @@ router.post("/google", google);
 // @route   GET /api/auth/me
 // @desc    Get current logged-in user details
 // @access  Private (Requires JWT)
-router.get("/me", jwtAuth, getMe);
+router.get("/me", requireAuth, getMe);
 
 
 module.exports = router;
