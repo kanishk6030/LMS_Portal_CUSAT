@@ -4,9 +4,9 @@ const {
   getAllStudents,
   getStudentById,
   updateAttendance,
-  getAttendance,
-  getAssignments,
-} = require("../controllers/studentController.js");
+  // getAttendance,
+  // getAssignments,
+} = require("../controller/studentController");
 
 // List all students
 router.get("/", getAllStudents);
@@ -18,9 +18,9 @@ router.get("/:id", getStudentById);
 router.put("/:id/attendance", updateAttendance);
 
 // Get attendance record
-router.get("/:id/attendance", getAttendance);
+// router.get("/:id/attendance", getAttendance);
 
 // List assignments submitted by student
-router.get("/:id/assignments", getAssignments);
+// router.get("/:id/assignments", getAssignments);
 
 module.exports = router;

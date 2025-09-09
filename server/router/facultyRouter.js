@@ -5,8 +5,8 @@ const {
   getAllFaculty,
   getFacultyById,
   uploadNotes,
-  createAssignment,
-  markAttendance,
+  // createAssignment,
+  // markAttendance,
 } = require("../controllers/facultyController.js");
 
 // List all faculty
@@ -19,9 +19,9 @@ router.get("/:id", getFacultyById);
 router.post("/:id/notes", uploadNotes);
 
 // Create assignment for course
-router.post("/:id/assignments", createAssignment);
+// router.post("/:id/assignments", createAssignment);
 
 // Mark attendance for a student
-router.put("/:id/attendance/:studentId", markAttendance);
+// router.put("/:id/attendance/:studentId", markAttendance);
 
 module.exports = router;
