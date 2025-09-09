@@ -4,7 +4,7 @@ const {
   getAllCourses,
   getCourseById,
   createCourse,
-} = require("../controllers/courseController.js");
+} = require("../controllers/courseController");
 
 // List all courses
 router.get("/", getAllCourses);

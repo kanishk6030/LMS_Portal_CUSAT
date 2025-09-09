@@ -6,7 +6,7 @@ const {
   updateAttendance,
   // getAttendance,
   // getAssignments,
-} = require("../controller/studentController");
+} = require("../controllers/studentController");
 
 // List all students
 router.get("/", getAllStudents);

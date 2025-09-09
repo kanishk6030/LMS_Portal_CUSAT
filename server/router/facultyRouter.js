@@ -7,7 +7,7 @@ const {
   uploadNotes,
   // createAssignment,
   // markAttendance,
-} = require("../controllers/facultyController.js");
+} = require("../controllers/facultyController");
 
 // List all faculty
 router.get("/", getAllFaculty);
