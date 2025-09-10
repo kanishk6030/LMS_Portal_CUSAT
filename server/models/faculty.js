@@ -9,6 +9,9 @@ const facultySchema = new mongoose.Schema(
     },
     department: String,
     subjects: [{ type: mongoose.Schema.Types.ObjectId, ref: "Subject" }],
+    isHOD: { type: Boolean, default: false },
+    isPrincipal: { type: Boolean, default: false },
+    
   },
   { timestamps: true }
 );

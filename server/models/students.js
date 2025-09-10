@@ -12,6 +12,9 @@ const studentSchema = new Schema({
     branch: String,
     semester: Number,
     year: Number,
+    registerNumber: Number,
+    section: String,
+    
   },
   { timestamps: true }
 );
