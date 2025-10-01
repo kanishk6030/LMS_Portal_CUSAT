@@ -21,7 +21,7 @@ const HomePage = () => {
         </h1>
         <p></p>
         <p className="text-neutral-500 max-w-lg mx-auto my-4 text-sm relative z-10">
-          Welcome to the official Learning Management System. We provide reliable, scalable  customizable solutions for your academic needs.
+          Welcome to the official Learning Management System. We provide reliable, scalable and    customizable solutions for your academic needs.
         </p>
         
         {/* Feature Cards */}
